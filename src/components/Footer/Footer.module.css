@@ -1,0 +1,88 @@
+/* src/components/Footer/Footer.module.css */
+.footer {
+  background-color: var(--dark-background);
+  color: var(--text-muted-dark-bg);
+  padding: 40px 0;
+  margin-top: auto; /* Push footer to bottom if content is short */
+}
+
+.footerContainer {
+  text-align: center;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Spacing between footer elements */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-decoration: none; 
+}
+
+.logoImage {
+  height: 30px; 
+  width: auto; 
+  margin-right: 8px; 
+  border-radius: 4px; 
+}
+
+.logo:hover, .logo:hover .logoImage { /* Ensure text and image respond to hover if desired */
+    /* opacity: 0.8; Example hover effect */
+    /* You can also change color of text if it's separate span */
+}
+
+.copyright {
+  font-size: 0.9rem;
+}
+
+.socialIcons { /* This class will be used for X, Email, GitHub */
+    margin-top: 5px; /* Add a little space above social icons */
+    margin-bottom: 5px; /* Add a little space below social icons */
+}
+
+.socialIcons a {
+  color: var(--text-muted-dark-bg);
+  font-size: 1.2rem; /* Adjust icon size if using text or actual icons */
+  margin: 0 12px; /* Increased margin for better spacing */
+  transition: color 0.3s ease;
+  text-decoration: none; /* Ensure no underlines for icon links */
+}
+
+.socialIcons a:hover {
+  color: var(--secondary-color);
+}
+
+/* Optional: if you want to add a text label next to an icon */
+.socialIcons a span {
+    /* font-size: 0.85rem; */ /* For smaller text labels */
+    /* margin-left: 5px; */
+}
+
+.footerLinks { /* For Privacy Policy, Terms of Service */
+   /* gap: 10px; /* If you want space between items using flex */
+}
+
+.footerLinks a {
+  color: var(--text-muted-dark-bg);
+  font-size: 0.9rem;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: var(--text-light);
+}
+
+.footerLinks span { /* For the "|" separator */
+    color: var(--text-muted-dark-bg);
+    margin: 0 5px;
+}

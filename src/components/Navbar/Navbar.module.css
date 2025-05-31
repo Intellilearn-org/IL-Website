@@ -1,0 +1,169 @@
+/* src/components/Navbar/Navbar.module.css */
+/* ... (keep all your existing styles above this section) ... */
+
+.navbar {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  z-index: 1000; 
+  transition: box-shadow 0.3s ease;
+  background-color: var(--dark-background); 
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text-light); 
+}
+.logoImage {
+  height: 40px; 
+  width: auto; 
+  margin-right: 10px; 
+  border-radius: 4px; 
+}
+.logo:hover {
+  color: var(--accent-color); 
+}
+
+.navLinks {
+  display: flex;
+  align-items: center; /* Vertically align items including the new button */
+}
+.navLinks a { /* This applies to ScrollLink styled as 'a' */
+  color: var(--text-light); 
+  margin: 0 15px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 5px; 
+  text-decoration: none;
+}
+.navLinks a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary-color); 
+  transition: width 0.3s ease;
+}
+.navLinks a:hover::after,
+.navLinks a.activeLink::after { 
+  width: 100%;
+}
+.navLinks a:hover {
+  color: var(--accent-color); 
+}
+
+.mobileMenuIcon {
+  display: none; 
+  cursor: pointer;
+}
+.mobileMenuIcon div {
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+  background-color: var(--text-light); 
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- PLAY GAMES BUTTON STYLE --- */
+.playButton {
+background-color: var(--secondary-color);
+color: var(--text-light) !important; /* Ensure text is light, overrides other .navLinks a styles */
+padding: 10px 20px; /* Suitable padding for a navbar button */
+border-radius: var(--border-radius);
+font-family: var(--font-heading);
+font-weight: 600;
+font-size: 0.95rem; /* Consistent with other nav links or slightly different for emphasis */
+text-decoration: none;
+margin-left: 20px; /* Space from the last nav link */
+transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+display: inline-block; 
+line-height: 1.5; /* Standard button line height */
+white-space: nowrap; /* Prevent text wrapping */
+}
+
+.playButton:hover {
+background-color: #e65100; /* Darker orange, from Button.module.css primary:hover */
+transform: translateY(-2px);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+color: var(--text-light) !important; /* Ensure text color stays light on hover */
+}
+
+/* Ensure the button doesn't get the underline pseudo-element */
+.playButton::after {
+display: none !important;
+}
+
+
+/* --- MOBILE MENU DROPDOWN --- */
+@media (max-width: 992px) {
+  .navLinks {
+    display: none; 
+    position: absolute;
+    top: var(--navbar-height); 
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center; /* Center items in column */
+    background-color: var(--dark-background); 
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navLinks.active { 
+    display: flex; 
+  }
+
+  /* Styling for all links (ScrollLink and Play Games button) in mobile dropdown */
+  .navLinks a, 
+  .navLinks .playButton { 
+    margin: 12px 0; /* Consistent vertical margin */
+    text-align: center;
+    width: 80%; /* Make links and button take up most of the width for easier tapping */
+    max-width: 300px; /* Max width for very wide screens if needed */
+    box-sizing: border-box; /* Ensure padding is included in width */
+  }
+
+  /* Specific to ScrollLinks in mobile if they need to look different from button */
+  .navLinks a:not(.playButton) {
+    padding-bottom: 5px; /* Keep padding for underline */
+    width: auto; /* Let text links size naturally */
+    max-width: none;
+  }
+  
+  /* Ensure the playButton retains its button appearance in mobile */
+  .playButton {
+    margin-top: 15px; /* Add some extra space above the button in mobile menu */
+    width: auto; /* Allow button to size based on its content + padding */
+    display: inline-block; /* Make it behave like a button */
+    padding: 12px 25px; /* Slightly larger padding for mobile touch targets */
+  }
+
+  .mobileMenuIcon {
+    display: block; 
+  }
+}

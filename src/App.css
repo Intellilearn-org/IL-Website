@@ -1,0 +1,20 @@
+/* You can add very high-level App container styles here if needed */
+
+/*
+  This rule hides the HTML element with id="contact".
+  This is based on the common practice of assigning an ID to each section
+  for navigation (e.g., a "Contact" link in your Navbar would scroll to #contact).
+
+  If your "Get in touch" section does not have the ID "contact",
+  this rule will not work. You would need to identify the correct
+  ID or a suitable unique class for that section.
+
+  NOTE: This method only hides the section visually. The HTML and
+  associated JavaScript for the Contact section will still be loaded by the browser.
+  For complete removal, you should remove the <Contact /> component
+  from your main application file (e.g., App.js or App.tsx).
+  This would also involve removing any navigation links pointing to this section.
+*/
+#contact {
+    display: none !important;
+  }

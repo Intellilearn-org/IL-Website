@@ -1,0 +1,49 @@
+/* src/components/HackathonBanner/HackathonBanner.module.css */
+.hackathonBanner {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 12px 20px; /* Default padding */
+    text-align: center;
+    font-size: 0.9rem; /* Default font size */
+    font-weight: 600;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    line-height: 1.4;
+    /* Height will be determined by content + padding */
+  }
+  
+  .hackathonBanner a {
+    color: inherit;
+    text-decoration: none;
+    display: block; 
+  }
+  
+  .trophyIcon {
+    margin-right: 8px;
+    vertical-align: middle; 
+  }
+  
+  /* --- ADD MEDIA QUERY FOR MOBILE --- */
+  @media (max-width: 600px) { /* Adjust breakpoint as needed */
+    .hackathonBanner {
+      font-size: 0.75rem; /* Smaller font on mobile */
+      padding: 10px 10px; /* Adjust padding for mobile */
+      line-height: 1.45; /* Slightly adjust line height if needed for wrapped text */
+    }
+  
+    .trophyIcon {
+      font-size: 0.9em; /* Make trophy slightly smaller relative to new font size */
+      margin-right: 5px;
+    }
+  }
+  
+  @media (max-width: 400px) { /* Even smaller screens */
+      .hackathonBanner {
+          font-size: 0.7rem;
+          padding: 8px 8px;
+      }
+  }
